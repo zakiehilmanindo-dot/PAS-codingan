@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAS Coding</title>
+</head>
+<body>
+
+<style>
+    
+    body{
+    font-family: sans-serif;
+    background: linear-gradient(135deg, black 0%, azure 100%);
+    min-height: 100vh;
+    color: lightslategray;
+}
+
+.teks{
+    color: white;
+    text-align: center;
+}
+
+.content{
+    color: white;
+    text-align: center;
+}
+        
+.bew{
+    color: white;
+    text-align: center;
+}
+
+.sir{
+    color: white;
+    text-align: center;
+}
+
+    /* hamburger menu styles */
+    .hamburger{
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background: #333;
+        margin: 3px 0;
+        transition: 0.3s;
+    }
+
+    #menu-toggle {
+        display: none;
+    }
+
+    #menu-toggle:checked ~ .hamburger span:nth-child(1) {
+     transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    #menu-toggle:checked ~.hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+
+    #menu-toggle:checked ~ .hamburger span:nth-child(3) {
+     transform: rotate(45deg) translate(-5px, 6px);
+    }
+
+    @media(max-width: 768px) {
+    .navbar {
+        padding: 0 1rem;
+        height: 60px;
+    }
+    .navbar .logo {
+        font-size: 1.5rem;
+    }
+    .hamburger{
+        display: flex;
+    }
+}
+
+.navbar .nav-links {
+    display: flex;
+    list-style: none;
+}
+
+    .navbar .nav-links li {
+        margin-left: 2rem;
+    }
+        
+    .navbar .nav-links a {
+        color: #333;
+        text-decoration: none;
+        font-weight: 500;
+        position: relative;
+        transition:  all 0.3  ease; 
+        padding: 0.5rem 0;
+    }
+
+.navbar .nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(45deg purple, rgb(77, 38, 38));
+    transition: witdh 0.3 ease;
+}
+
+    .navbar .nav-links a:hover::after {
+        width: 100%;
+    }
+
+    .navbar .nav-links a:hover {
+        color: #667eea;
+        transform: translateY(-2px);
+    }
+
+
+    .navbar .nav-links a.active {
+        color: #667eea;
+    }
+
+    .navbar .nav-links a.active::after {
+        width: 100%;
+    }
+
+    .navbar{
+        background-color: linear-gradient(aqua,lime,aqua,lime);
+        width: 95%;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 2rem;
+        height: 70px;
+    }
+        
+    .navbar .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: rgb(32, 29, 14);
+        text-decoration: none;
+        letter-spacing: 1px;
+    }
+
+/* CARD */
+.card{
+    background: linear-gradient(135deg, aqua 0%, blue 100%);
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px black;
+    transform: translateY(50px);
+    animation: fadeup 0.8s forwards;
+}
+
+/* AMBATUKAM */
+.ambatukam{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 40px;
+}
+
+/* SHIMER-EFFECT */
+.shimer{
+    position: relative;
+    overflow: hidden;
+}
+
+.shimer::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(900deg, transparent, azure, transparent);
+    animation: shimer 1.5s infinite;
+}
+
+.geo-dash{
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    background: url(Fiyud\ 2nd\ Profile.jpg);
+    background-size: cover;
+    border-radius: 100%;
+}
+
+.about{
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    border-radius: 100%;
+    margin-bottom: 15px;
+    background: url(Passcode\ -\ Copy\ \(2\).jpeg);
+    background-size: cover;
+}
+
+.exp{
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    border-radius: 100%;
+    margin-bottom: 15px;
+    background: url(hitam.jpg);
+}
+
+.song{
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+    border-radius: 100%;
+    margin-bottom: 15px;
+    background: url(Dare\ -\ Sayfalse\,\ TRXVELER\,\ DJ\ ALIM.png);
+    background-size: cover;
+}
+
+.attendence h1{
+    background: transparent;
+    color: azure;
+    margin-top: 210px;
+    height: 100px;
+    text-align: center;
+}
+
+.attend h1{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 30px;
+}
+
+/* CARDITY */
+.cardity{
+    background: linear-gradient(135deg, aqua 0%, blue 100%);
+    background-size: cover;
+    width: 100%;
+    height: 150px;
+    border-radius: 10px;
+}
+
+/* CARDITAN */
+.carditan{
+    background: linear-gradient(135deg, green 0%, lime 100%);
+    background-size: cover;
+    width: 100%;
+    height: 210px;
+    border-radius: 10px;
+}
+
+.cardity h4{
+    text-align: center;
+    font-size: 21px;
+    color: azure;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.h3{
+    text-align: center;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+}
+
+.black{
+    color: azure;
+    text-align: center;
+    font-size: 15px;
+    margin-right: 33%;
+    font-weight: bold;
+}
+
+.aqua{
+    color: aqua;
+    text-align: center;
+    font-size: 15px;
+    margin-left: 33%;
+    font-weight: bold;
+}
+
+/* CARDITARY */
+.carditary{
+    background: linear-gradient(135deg, aqua 0%, blue 100%);
+    background-size: cover;
+    width: 100%;
+    max-width: 100%;
+    text-align: left;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.h3-67{
+    color: azure;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+}
+
+        .modal{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal:target{
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content{
+            background: linear-gradient(135deg, aqua 0%, blue 100%);
+            background-size: cover;
+            backdrop-filter: blur(10px) blue;
+            padding: 30px;
+            border-radius: 16px;
+            width: 350px;
+            color: blue;
+            position: relative;
+            box-shadow: 0 8px 32px 0 black;
+            animation: fadein 0.4s ease;
+        }
+
+        @keyframes fadein {
+            from{
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to{
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close{
+            position: absolute;
+            top: 25px;
+            right: 15px;
+            text-decoration: underline;
+            font-size: 27px;
+            color: azure;
+        }
+
+        .modal-content h2{
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+            border-radius: 20px;
+        }
+
+        .input-group label{
+            font-size: 21px;
+            display: inline-block;
+            margin-bottom: 3px;
+        }
+
+        .input-group input{
+            width: 150px;
+            padding: 8px;
+            border-radius: 10px;
+            border: 5px solid navy;
+            outline: invert;
+        }
+
+        .btn{
+            width: 75px;
+            padding: 13px;
+            border: navy;
+            border-radius: 10px;
+            background: navy;
+            color: azure;
+            font-weight: bold;
+        }
+
+        .btn:hover{
+            background: aqua;
+        }
+
+        .footer-text{
+            text-align: center;
+            margin-top: 25px;
+            font-size: 21px;
+        }
+
+        .footer-text a{
+            color: aqua;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-decoration: underline;
+        }
+
+.experience{
+    text-align: center;
+    color: azure;
+    font-size: 31px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 200px;
+}
+
+.login{
+    background-color: linear-gradient(135deg, aqua 0%, blue 100%);
+    background-size: cover;
+    width: 100%;
+    max-width: 100%;
+    text-align: left;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.nav-links{
+    background: linear-gradient(135deg, aqua 0%, blue 100%);
+    background-size: cover;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+}
+
+.open-modal{
+    color: azure;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size: 21px;
+    margin-left: 33%;
+    font-weight: bold;
+}
+
+@keyframes sideanimation {
+    from{
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    logical{
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+}
+
+.expert{
+    background: url(Geometry\ Dash\ 2.2\ -\ Account.png), url(Jurrasic\ World\ the\ Game.jpg);
+    background-size: cover;
+    width: 50%;
+    height: 385px;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+@keyframes sideanimation {
+    from{
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.expertant{
+    color: azure;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.h3-class{
+    text-align: left;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 21px;
+}
+
+/* Slider Container */
+        .slider-container {
+            width: 80%;
+            max-width: 900px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            /* Updated box-shadow for better contrast */
+            box-shadow: 0 15px 40px solid black; /* Slightly stronger shadow */
+            background: url(Linear\ Gradient.jpg);
+            background-size: cover;
+            aspect-ratio: 16 / 9; /* Maintain aspect ratio for the slider */
+            margin-left: 17%;
+            margin-top: 150px;
+        }
+
+        /* Slider Wrapper */
+        .slider-wrapper {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        /* Hide Radio Buttons */
+        .slider-wrapper input[type="radio"] {
+            display: none;
+        }
+
+        /* Slide Content Wrapper */
+        .slide-content-wrapper {
+            display: flex;
+            width: 100%; /* Changed to 100% since only one slide is visible at a time */
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Smooth, bouncy transition */
+            transform: translateX(0%) !important; /* Reset any existing transform */
+        }
+
+        /* Individual Slide Items */
+        .slide-item {
+            width: 100%; /* Make each slide item take up the full width */
+            flex-shrink: 0; /* Prevent slides from shrinking */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+            box-sizing: border-box;
+            color: black;
+        }
+
+        .slide-item h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: black;
+            font-weight: 700;
+        }
+
+        .slide-item p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: black;
+            max-width: 600px;
+        }
+
+        /* Slider Navigation (Dots) */
+        .slider-navigation {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .nav-dot {
+            height: 12px;
+            width: 12px;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-dot:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+            transform: scale(1.1);
+        }
+
+        /* Slide Transition Logic (now effectively disabled for horizontal movement) */
+        #slide1:checked ~ .slide-content-wrapper { transform: translateX(0%) !important; }
+        #slide2:checked ~ .slide-content-wrapper { transform: translateX(0%) !important; }
+        #slide3:checked ~ .slide-content-wrapper { transform: translateX(0%) !important; }
+        #slide4:checked ~ .slide-content-wrapper { transform: translateX(0%) !important; }
+
+        /* Active Nav Dot */
+        #slide1:checked ~ .slider-navigation .nav-dot:nth-child(1),
+        #slide2:checked ~ .slider-navigation .nav-dot:nth-child(2),
+        #slide3:checked ~ .slider-navigation .nav-dot:nth-child(3),
+        #slide4:checked ~ .slider-navigation .nav-dot:nth-child(4) {
+            background-color: #3498db; /* A vibrant blue for active dot */
+            transform: scale(1.2);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.4);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .slider-container {
+                width: 95%;
+                border-radius: 8px;
+            }
+
+            .slide-item {
+                padding: 20px;
+            }
+
+            .slide-item h2 {
+                font-size: 1.8em;
+            }
+
+            .slide-item p {
+                font-size: 0.9em;
+            }
+
+            .nav-dot {
+                height: 10px;
+                width: 10px;
+            }
+        }
+        
+    #slide1:checked ~ .slide-content-wrapper { transform: translateX(0%) !important; }
+    #slide2:checked ~ .slide-content-wrapper { transform: translateX(-100%) !important; }
+    #slide3:checked ~ .slide-content-wrapper { transform: translateX(-200%) !important; }
+    #slide4:checked ~ .slide-content-wrapper { transform: translateX(-300%) !important; }
+
+        /* Slider Container */
+        .slider-container {
+            width: 80%;
+            max-width: 900px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .open-modal a{
+            color: azure;
+            font-family: Arial, Helvetica, sans-serif;
+            text-decoration: none;
+            font-size: 21px;
+            margin-left: 33%;
+        }
+
+.content{
+        padding: 2rem;
+        margin-top: 90px;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero{
+        text-align: center;
+        padding: 4rem 2rem;
+        background: rgba(225,225,225,0.1);
+        border-radius: 20px;
+        margin-bottom: 2rem;
+        backdrop-filter: blur(10px);
+    }
+    .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: white;
+    }
+
+    .hero p {
+     font-size: 1.2rem;
+     color: rgba(225,225,225,0.9);
+     line-height: 1.6;
+    }
+    /* hamburger menu styles */
+    .hamburger{
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background: #333;
+        margin: 3px 0;
+        transition: 0.3s;
+    }
+    #menu-toggle {
+        display: none;
+    }
+
+    #menu-toggle:checked ~ .hamburger span:nth-child(1) {
+     transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    #menu-toggle:checked ~.hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+    #menu-toggle:checked ~ .hamburger span:nth-child(3) {
+     transform: rotate(45deg) translate(-5px, 6px);
+    }
+    @media(max-width: 768px) {
+    .navbar {
+        padding: 0 1rem;
+        height: 60px;
+    }
+    .navbar .logo {
+        font-size: 1.5rem;
+    }
+    .hamburger{
+        display: flex;
+    }
+    .navbar .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: aliceblue;
+    flex-direction: column;
+    padding: 1rem 0;
+    box-shadow:  0 2px 20px rgba(0,0,0,0.1);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    }
+    #menu-toggle:checked ~ .nav-links {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    .navbar .nav-links li{
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero p{
+    font-size: 1rem;
+   }
+}
+
+.slide{
+    color: azure;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+</style>
+
+    <div class="teks">
+        <nav class="navbar">
+            
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+       <ul class="nav-links" id="menu">
+           <li><a href="#ambatukam" class="logo">PAS Coding</a></li>
+            <li><a href="#attendence" class="active">About Me</a></li>
+            <li><a href="#geometry" class="active">My Game</a></li>
+            <li><a href="#LoginModal" class="open-modal">Login</a></li>
+        </ul>
+    </nav>
+    </div>
+
+</head>
+<body>
+
+    <section class="slider" id="ambatukam">
+
+    <div class="slider-container">
+        <div class="slider-wrapper">
+            <input type="radio" id="slide1" name="slider" checked aria-label="Slide 1">
+            <input type="radio" id="slide2" name="slider" aria-label="Slide 2">
+            <input type="radio" id="slide3" name="slider" aria-label="Slide 3">
+            <input type="radio" id="slide4" name="slider" aria-label="Slide 4">
+
+            <div class="slide-content-wrapper">
+                <div class="slide-item slide-item-1">
+                    <h2>Welcome to My Website</h2>
+                    <p>Why i made this website? See more if you want more information.</p>
+                </div>
+
+                <div class="slide-item slide-item-2">
+                    <h2>I made this website for My PAS at coding</h2>
+                    <p>but that wasnt a main idea for this</p>
+                </div>
+
+                <div class="slide-item slide-item-3">
+                    <h2>This is my Instagram, if you want them, you can</h2>
+                    <a href="https://www.instagram.com/fiyud_geometer67/" class="slide">Fiyud GD</a>
+                    <a href="https://www.instagram.com/spookybuttasty.igs7i/" class="slide">Spookybuttasty</a>
+                </div>
+
+            <div class="slider-navigation">
+                <label for="slide1" class="nav-dot" aria-label="Go to Slide 1"></label>
+                <label for="slide2" class="nav-dot" aria-label="Go to Slide 2"></label>
+                <label for="slide3" class="nav-dot" aria-label="Go to Slide 3"></label>
+                <label for="slide4" class="nav-dot" aria-label="Go to Slide 4"></label>
+            </div>
+        </div>
+    </div>
+
+    </section>
+
+</body>
+</html>
+
+    <section class="attendence" id="attendence">
+        <h1>About Me</h1>
+
+        <div class="cardity" id="about">
+            <div class="data shimer"></div>
+            <h4 class="h4">Hi! My name Is Zakie, you can call me Zakie, I am top 3 "Geometry Dash" player at IGS and top 1 "Jurrasic World the Game" player at IGS. I am a new GD player, i played GD at 2024 at 2.2 update, and i played JW the Game at 2020, 6 years but now i have account because if i dont have a Account, my account could be refreshed, i am school at Junior High School IGS (SMP IGS) at 7th grade, but thats not the main purpose for this website</h4>
+        </div>
+
+        <h1>My Game</h1>
+
+        <div class="carditan" id="geometry">
+            <div class="geo shimer"></div>
+            <h3 class="h3">Hi! this is the Gaming Section, if you like gaming, see more here. This is my Gaming Record, this is the Image url Image</h3>
+            <a href="https://www.instagram.com/p/DYRbfGhp3QB/" class="aqua">Geometry Dash</a>
+            <a href="https://www.instagram.com/p/DYRbpzaJSeW/" class="black">Jurrasic World the Game</a>
+        </div>
+    </section>
+
+    <section class="login">
+
+        <!--Tombol Modal-->
+    <div id="LoginModal" class="modal">
+    <div class="modal-content">
+
+            <a href="#" class="close">&times;</a>
+            <h2>Login</h2>
+            <form>
+
+                <div class="input-group">
+                    <label for="">Email</label>
+                    <input type="email" placeholder="Masukkan Email">
+                </div>
+
+                <div class="input-group">
+                    <label for="">Password</label>
+                    <input type="password" placeholder="Masukkan Password">
+                </div>
+
+                <button class="btn">Login</button>
+                <div class="footer-text">
+                    <!--marque untuk menggerakkan text di html-->
+                    <marquee>Didnt have a account?</marquee>
+                </div>
+            </form>
+
+    </div>
+
+    </section>
+
+</body>
+</html>
